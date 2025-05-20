@@ -1,12 +1,9 @@
 #include <Servo.h>
-
-
 #define TRIG_PIN 9
 #define ECHO_PIN 8
 #define SERVO_PIN 10
 
 Servo myServo;
-
 const int distanceThreshold = 20; 
 
 void setup() 
