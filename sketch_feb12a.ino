@@ -1,21 +1,19 @@
 #include <Servo.h>
 
-// Pin definisi
+
 #define TRIG_PIN 9
 #define ECHO_PIN 8
 #define SERVO_PIN 10
 
-// Objek servo
 Servo myServo;
 
-// Konstanta jarak
-const int distanceThreshold = 20; // dalam cm
+const int distanceThreshold = 20; 
 
 void setup() {
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
   myServo.attach(SERVO_PIN);
-  myServo.write(0); // Tutup tutup tong sampah
+  myServo.write(0); 
   
   Serial.begin(9600);
 }
@@ -24,14 +22,13 @@ void loop() {
   int distance = getDistance();
 
   if (distance > 0 && distance < distanceThreshold) {
-    // Jika jarak lebih kecil dari threshold, buka tutup
     Serial.println("Objek terdeteksi. Membuka tutup.");
-    myServo.write(90); // Buka tutup
-    delay(3000);       // Tunggu 3 detik
-    myServo.write(0);  // Tutup kembali
+    myServo.write(90);
+    delay(3000);       
+    myServo.write(0); 
   }
 
-  delay(100); // Tunggu sebentar sebelum membaca lagi
+  delay(100);
 }
 
 // Fungsi untuk menghitung jarak
