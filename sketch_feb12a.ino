@@ -31,19 +31,15 @@ void loop() {
   delay(100);
 }
 
-// Fungsi untuk menghitung jarak
-int getDistance() {
-  // Kirim sinyal TRIG
+int getDistance() 
+{
   digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
   digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
 
-  // Baca sinyal ECHO
   long duration = pulseIn(ECHO_PIN, HIGH);
-
-  // Hitung jarak (kecepatan suara = 34300 cm/s)
   int distance = duration * 0.034 / 2;
 
   return distance;
