@@ -9,7 +9,8 @@ Servo myServo;
 
 const int distanceThreshold = 20; 
 
-void setup() {
+void setup() 
+{
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
   myServo.attach(SERVO_PIN);
@@ -18,10 +19,12 @@ void setup() {
   Serial.begin(9600);
 }
 
-void loop() {
+void loop() 
+{
   int distance = getDistance();
 
-  if (distance > 0 && distance < distanceThreshold) {
+  if (distance > 0 && distance < distanceThreshold) 
+  {
     Serial.println("Objek terdeteksi. Membuka tutup.");
     myServo.write(90);
     delay(3000);       
